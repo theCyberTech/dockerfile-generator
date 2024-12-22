@@ -22,14 +22,39 @@ pip install dockerfile-generator
 
 ```bash
 # Basic usage
+dockerfile-generator PROJECT_PATH
+
+# Command line options
+dockerfile-generator [OPTIONS] PROJECT_PATH
+
+Options:
+  -o, --output PATH  Specify custom output path for the Dockerfile
+                    (default: PROJECT_PATH/Dockerfile)
+  -v, --verbose     Enable verbose debug logging
+  --help           Show this help message and exit
+```
+
+### Examples
+
+```bash
+# Generate Dockerfile in project directory
 dockerfile-generator /path/to/your/project
 
-# Specify output location
-dockerfile-generator /path/to/your/project -o /path/to/output/Dockerfile
+# Generate Dockerfile at specific location
+dockerfile-generator /path/to/your/project -o /custom/path/Dockerfile
 
 # Enable verbose logging
 dockerfile-generator /path/to/your/project -v
+
+# Show help message
+dockerfile-generator --help
 ```
+
+The verbose flag (`-v`) enables detailed debug logging that shows:
+- Project analysis details (file counts, paths)
+- Language detection process and confidence scores
+- Dependency file detection and analysis
+- Dockerfile generation steps
 
 ## Supported Languages
 
